@@ -9,7 +9,9 @@ export const appReducer = (state, action) => {
     case "FAVORITAR":
       return {
         ...state,
-        favoritos: [...state.favoritos, action.payload],
+        favoritos: state.favoritos.includes(action.payload)
+          ? state.favoritos
+          : [...state.favoritos, action.payload],
       };
 
     default:
